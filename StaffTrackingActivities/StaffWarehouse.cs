@@ -10,7 +10,7 @@ namespace StaffTrackingActivities {
     /// A general class for a company that include array of developers, QA, managers
     /// </summary>
     public class StaffWarehouse : SystemUser {
-        // Developer[] developer  = new Developer[15];
+       
         SystemUser systemUser = new SystemUser();
         List<Developer> developer = new List<Developer>();
         public List<QA> testingEngineer = new List<QA>();
@@ -46,9 +46,7 @@ namespace StaffTrackingActivities {
             List<Developer> devList = DevelopersList();
             List<Developer> compareList = new List<Developer>();
             List<Developer> compareWithList = new List<Developer>();
-            //Developer[] order1 = new Developer[developer.Count()];
-            //Developer[] order2 = new Developer[developer.Count()];
-            //Developer[] order3 = new Developer[developer.Count()];
+
             compareWithList.Add(new Developer() { DeveloperId = 999, FirstName = "Dev999", LastName = "Developer99", Salary = salary, JobPosition = "Developer", Proficiency = proficiencySelected });
 
             devList = developer.FindAll(d => d.Proficiency.Contains(proficiencySelected));
@@ -59,21 +57,14 @@ namespace StaffTrackingActivities {
                 if (result < 0) {
                     devList.ElementAt(i).Order = 1;
                     compareList.Add(devList.ElementAt(i));
-                    //    Console.Write("{0,12}={1}", developer.ElementAt(i).Proficiency, developer.ElementAt(1).Proficiency);
-                    //    Console.WriteLine("{0,12}={1}", developer.ElementAt(i).Salary, developer.ElementAt(1).Salary);
+                   
                 } else if (result == 0) {
                     compareList.Add(devList.ElementAt(i));
-                    //    Console.WriteLine("{0,12}>{1}", developer.ElementAt(i).Proficiency, developer.ElementAt(1).Proficiency);
-                    //    Console.WriteLine("{0,12}>{1}", developer.ElementAt(i).Salary, developer.ElementAt(1).Salary);
-                    //} else {
-                    //    devList.ElementAt(i).Order = 3;
-                    //        //    Console.WriteLine("{0,12}<{1}", developer.ElementAt(i).Proficiency, developer.ElementAt(1).Proficiency);
-                    //        //    Console.WriteLine("{0,12}<{1}", developer.ElementAt(i).Salary, developer.ElementAt(1).Salary);
-                    //    }
+            
 
  }
                 }
-                //List<Developer> SortedList = devList.OrderBy(o => o.Order).ToList();
+            
                 return compareList;
 
            
@@ -90,15 +81,7 @@ namespace StaffTrackingActivities {
             }
         }
 
-        //    public void CompareStaff<T> (T x,T y)  where T:IComparable<T> {
-        //    int result= x.CompareTo(y);
-        //    if (result == 0) Console.WriteLine("{0,12}={1}", x, y);
-        //    else if (result>0 ) Console.WriteLine("{0,12}>{1}", x, y);
-        //    else if (result < 0) Console.WriteLine("{0,12}<{1}", x, y);
-        //}
-
-        // Console.WriteLine (   compareQA.Proficiency.CompareTo(compareQA.Proficiency)    );
-
+       
     }
 }
 

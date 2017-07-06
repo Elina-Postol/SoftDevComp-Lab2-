@@ -5,18 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace StaffTrackingActivities {
-    class TaskItemEqualityComparer : IEqualityComparer<Task> {
-        private static readonly Task _instance = new Task();
-        public static Task Instance { get { return _instance; } }
+    class TaskItemEqualityComparer : IEqualityComparer<Tasks> {
+        private static readonly Tasks _instance = new Tasks();
+        public static Tasks Instance { get { return _instance; } }
          private void Task() { }
-        public bool Equals(Task x, Task y) {
+        public bool Equals(Tasks x, Tasks y) {
             if ( x.TaskName.Equals(y.TaskName)) { //&&x.Difficulty.Equals(y.Difficulty) && x.Estimation.Equals(y.Estimation)) {
                 return true;
             } else return false;
 
         }
 
-        public int GetHashCode(Task obj) {
+        public int GetHashCode(Tasks obj) {
             return obj.TaskName.ToUpperInvariant().GetHashCode();// ^ obj.Difficulty.GetHashCode() ^ obj.Estimation.GetHashCode();
         }
     }

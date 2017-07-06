@@ -24,7 +24,22 @@ namespace StaffTrackingActivities {
             Proficiency = proficiency;
         }
         public override string ToString() {
-            return "QA ID: " + QAId + " First Name: " + FirstName + "   lastName: " + LastName + " Salary " + Salary + "  job position" + JobPosition + " Tasks " + AssignedTasks;
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" QA ID: ");
+            sb.Append(QAId);
+            sb.Append("First Name: ");
+            sb.Append(FirstName);
+            sb.Append("   lastName: ");
+            sb.Append(LastName);
+            sb.Append("  job position ");
+            sb.Append(JobPosition);
+            sb.Append(" Proficiency ");
+            sb.Append(Proficiency);
+            sb.Append(" Salary ");
+            sb.Append(Salary);
+            sb.Append(" Tasks ");
+            sb.Append(AssignedTasks);
+            return sb.ToString();
         }
 
         public int CompareTo(QA other,QA other2) {

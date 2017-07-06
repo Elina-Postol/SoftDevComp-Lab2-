@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "Cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayTasks", "DisplayTasks\DisplayTasks.csproj", "{E5B18FD9-CF82-42FE-A27D-CBC7DE3985CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffTrackingActivitiesTests", "StaffTrackingActivitiesTests\StaffTrackingActivitiesTests.csproj", "{16D94FDE-6ED7-42DC-8532-8155D6AFC1D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{E5B18FD9-CF82-42FE-A27D-CBC7DE3985CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5B18FD9-CF82-42FE-A27D-CBC7DE3985CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5B18FD9-CF82-42FE-A27D-CBC7DE3985CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16D94FDE-6ED7-42DC-8532-8155D6AFC1D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16D94FDE-6ED7-42DC-8532-8155D6AFC1D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16D94FDE-6ED7-42DC-8532-8155D6AFC1D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16D94FDE-6ED7-42DC-8532-8155D6AFC1D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,10 +8,10 @@ namespace StaffTrackingActivities {
     /// <summary>
     /// A pool of tasks for developers
     /// </summary>/// 
-   public class Task: IEqualityComparer<Task>  {
-        private static readonly Task _instance = new Task();
-        public static Task Instance { get { return _instance; } }
-        public Task() {
+   public class Tasks: IEqualityComparer<Tasks>  {
+        private static readonly Tasks _instance = new Tasks();
+        public static Tasks Instance { get { return _instance; } }
+        public Tasks() {
                 
         }
 
@@ -27,7 +27,7 @@ namespace StaffTrackingActivities {
             return "Task ID: " + TaskId + " Task Name: " + TaskName + "   Difficulty: " + Difficulty + "  Estimation " + Estimation;
         }
 
-        public bool Equals(Task x, Task y) {
+        public bool Equals(Tasks x, Tasks y) {
             if (x.Difficulty.Equals(y.Difficulty) && x.TaskName.Equals(y.TaskName) && x.Estimation.Equals(y.Estimation))
               {
                      return true;
@@ -35,7 +35,7 @@ namespace StaffTrackingActivities {
                           
         }
 
-        public int GetHashCode(Task obj) {
+        public int GetHashCode(Tasks obj) {
            return obj.TaskName.ToUpperInvariant().GetHashCode()^obj.Difficulty.GetHashCode()^obj.Estimation.GetHashCode();
         }
     }

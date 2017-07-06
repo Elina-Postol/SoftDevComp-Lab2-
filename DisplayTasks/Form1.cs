@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static StaffTrackingActivities.SystemUser;
@@ -28,29 +29,31 @@ namespace DisplayTasks {
 
         }
 
-        private void button1_Click(object sender, EventArgs e) {
-            HashSet<StaffTrackingActivities.Task> displayTasks = new HashSet<StaffTrackingActivities.Task>();
-            displayTasks = FillerTasks.TaskGenerator();
-            this.Controls.Add(listBox1);
-            foreach (var item in displayTasks) {
-                listBox1.Items.Add(item.ToString());
-            }
+        private void TaskGeneration_Click(object sender, EventArgs e) {
+            HashSet<StaffTrackingActivities.Tasks> displayTasks = new HashSet<StaffTrackingActivities.Tasks>();
+           this.Controls.Add(MyDisplay);
+            //Task T = new Task(() => {
+                displayTasks = FillerTasks.TaskGenerator();
+               // TaskScheduler.FromCurrentSynchronizationContext();
+  
+                foreach (var item in displayTasks) {
+                    MyDisplay.Items.Add(item.ToString());
+                  //  Thread.Sleep(10);
+                }
+              
+         // });
+          //  T.Start();
+        
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e) {
-            HashSet<StaffTrackingActivities.Task> displayTasks = new HashSet<StaffTrackingActivities.Task>();
-            displayTasks = FillerTasks.TaskGenerator();
-            foreach (var item in displayTasks) {
-                listBox1.Text.Insert(1, item.ToString());
-            }
-
-            //Items.Add(displayTasks);
+          
         }
 
-        private void button2_Click(object sender, EventArgs e) {
+        private void DeveloperCompareClick(object sender, EventArgs e) {
             StaffWarehouse stafflist = new StaffWarehouse();
             string text = "";
-            this.Controls.Add(listBox1);
+            this.Controls.Add(MyDisplay);
             if (comboBox1.SelectedItem == null ^ textBox1.Text == null) {
                 MessageBox.Show("Salary number for compare must be input. Prociciency must be selected to have compare results.");
 
@@ -61,7 +64,7 @@ namespace DisplayTasks {
                 // if (result != null) {
                 foreach (var item in stafflist.CompareDevelopers(result, salary)) {
                     text = item.ToString();
-                    listBox1.Items.Add(text);
+                    MyDisplay.Items.Add(text);
                     // }
                 }
                 //stafflist.CompareQA();
@@ -74,49 +77,61 @@ namespace DisplayTasks {
                 MessageBox.Show(result.ToString());
             }
 
-
-
-
-            //string acct =  comboBox1.SelectedValue.ToString();
-
-
         }
-        //public event SystemUser.DisplaySalaryMessage SalaryPaid;
+     
 
-        private void button3_Click(object sender, EventArgs e) {
+        private void PaySalary(object sender, EventArgs e) {
            Manager.TasksDistribution();
-
-            MessageBox.Show("This button will be implemented later", "Need to make choise", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //  SystemUser.SalaryPayment mydelegate = SystemUser.SalaryPayment(systUser.FirstName);
-            //   del MyDelegate = new del();
-            //  systUser.salarypaid("Test", systUser.salarypayment);
-            //  del.
-
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e) {
+           SystemUser salaryPay = new SystemUser();
+            salaryPay.PaySalary += ShowMessage;
+            salaryPay.PaySalaryPart(50);
+           
+           // MessageBox.Show("This button will be implemented later", "Need to make choise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
 
         }
 
-        private void button4_Click(object sender, EventArgs e) {
+        public  void ShowMessage(string message) {
+            
+            MyDisplay.Items.Add(message); 
+    }
+
+        private void SalaryInput_TextChanged(object sender, EventArgs e) {
+
+        }
+
+        private void Report1_Click(object sender, EventArgs e) {
             foreach (var item in Manager.ReportGenerationg1() ) {
            
-                listBox1.Items.Add(item.ToString());
+                MyDisplay.Items.Add(item.ToString());
             } 
         }
 
-        private void button5_Click(object sender, EventArgs e) {
+        private void Report2_Click(object sender, EventArgs e) {
            foreach (var item in Manager.ReportGenerationg2()) {
 
-                listBox1.Items.Add(item.ToString());
+                MyDisplay.Items.Add(item.ToString());
             }
         }
 
-        private void button6_Click(object sender, EventArgs e) {
+        private void Report3_click(object sender, EventArgs e) {
             foreach (var item in Manager.ReportGenerationg3()) {
 
-                listBox1.Items.Add(item.ToString());
+                MyDisplay.Items.Add(item.ToString());
+            }
+        }
+
+        private void Report4_Click(object sender, EventArgs e) {
+            foreach (var item in Manager.ReportGeneration4()) {
+
+                MyDisplay.Items.Add(item.ToString());
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e) {
+            foreach (var item in Manager.ReportGeneration5()) {
+
+                MyDisplay.Items.Add(item.ToString());
             }
         }
     }

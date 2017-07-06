@@ -50,7 +50,7 @@
     <Compile Include="QA.cs" />
     <Compile Include="StaffWarehouse.cs" />
     <Compile Include="SystemUser.cs" />
-    <Compile Include="Task.cs" />
+    <Compile Include="Tasks.cs" />
     <Compile Include="TaskItemEqualityComparer.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
